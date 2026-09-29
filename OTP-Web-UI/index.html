@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email OTP Verification</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-decoration" aria-hidden="true"><span></span><span></span><span></span></div>
+
+    <main class="card">
+        <div class="brand">
+            <div class="logo">OTP</div>
+            <div>
+                <h1>Email Verification</h1>
+                <p class="subtitle">Secure 6-digit code to your inbox</p>
+            </div>
+        </div>
+
+        <ol class="steps">
+            <li id="step1" class="active"><span>1</span> Email</li>
+            <li id="step2"><span>2</span> Verify</li>
+        </ol>
+
+        <!-- Step 1: Email -->
+        <section class="field-group">
+            <label for="destination">Email address</label>
+            <div class="input-row">
+                <input type="email" id="destination" placeholder="you@example.com" autocomplete="email">
+                <button id="sendBtn" class="btn primary" type="button">Send OTP</button>
+            </div>
+            <p id="hint" class="hint">We will send a 6-digit code. It expires in 60 seconds. Check spam on first send.</p>
+        </section>
+
+        <!-- Step 2: OTP -->
+        <section class="field-group">
+            <label for="otp">6-digit OTP</label>
+            <input type="text" id="otp" maxlength="6" placeholder="••••••" inputmode="numeric" autocomplete="one-time-code">
+            <div class="timer-wrap">
+                <div class="timer-bar"><div id="timerFill"></div></div>
+                <p id="timer" class="timer">Enter email and press Send OTP.</p>
+            </div>
+        </section>
+
+        <div class="actions">
+            <button id="verifyBtn" class="btn success" type="button">Verify OTP</button>
+            <button id="resendBtn" class="btn ghost" type="button">Resend</button>
+        </div>
+
+        <p id="status" class="status idle">Status: IDLE - waiting for email.</p>
+
+        <footer class="footer">
+            <span>60s expiry</span><i>•</i><span>3 attempts</span><i>•</i><span>Spring Boot backend</span>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
